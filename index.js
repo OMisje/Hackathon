@@ -14,16 +14,21 @@ board.on("ready", function() {
 		pin: 7,
 		invert: true
 	});
-	// led.off();
+	led.off();
+
+	var temp = new five.Thermometer({
+		controller: "DS18B20",
+		pin: 2
+	});
+
 	button.on("press", function() {
 		led.toggle();
+		console.log("Temperature " + temp.celsius + "C");
 	});
 	// button.on("release", function() {
 // 		led.toggle();
 //	});
 	
-	// led.on();
-	// led.strobe(500);
-	// led.toggle();
+
 });
 
